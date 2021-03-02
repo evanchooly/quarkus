@@ -230,7 +230,7 @@ public abstract class ReactiveMongoOperations<QueryType, UpdateType> {
     //
     // Private stuff
 
-    public Uni<Void> nullUni() {
+    private Uni<Void> nullUni() {
         return Uni.createFrom().item((Void) null);
     }
 

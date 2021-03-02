@@ -129,7 +129,7 @@ public class KotlinPanacheClassVisitor extends ClassVisitor {
             org.objectweb.asm.Type parameter = asmType(methodParameter);
             if (isNotPrimitiveId(methodParameter)) {
                 mv.visitVarInsn(parameter.getOpcode(ILOAD), index);
-                String value = method.parameterName(index);
+                String value = method.parameterName(index - 1);
                 mv.visitLdcInsn(value != null ? value : ("arg" + (index - 1)));
                 mv.visitMethodInsn(INVOKESTATIC, "kotlin/jvm/internal/Intrinsics", "checkNotNullParameter",
                         "(Ljava/lang/Object;Ljava/lang/String;)V", false);
@@ -300,7 +300,7 @@ public class KotlinPanacheClassVisitor extends ClassVisitor {
     private String elideDescriptor(String descriptor) {
         // sample kotlinc text: "KotlinMongoOperations.IN\u2026atabase(Book::class.java)"
         if (descriptor.length() > 55) {
-            return descriptor.substring(0, 24) + '\u2026' + descriptor.substring(descriptor.length() - 24);
+//            return descriptor.substring(0, 24) + '\u2026' + descriptor.substring(descriptor.length() - 24);
         }
         return descriptor;
     }
@@ -431,7 +431,7 @@ public class KotlinPanacheClassVisitor extends ClassVisitor {
                 annotationDesc = NULLABLE_DESCRIPTOR;
             } else {
                 nullCheckReturn(mv, returnType,
-                        typeBundle.operations().dotName().withoutPackagePrefix() + ".INSTANCE."
+                        /*typeBundle.operations().dotName().withoutPackagePrefix() + */"INSTANCE."
                                 + method.name() + joiner);
             }
             checkCast(mv, returnType, retType);

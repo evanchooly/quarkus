@@ -16,7 +16,8 @@ import java.util.stream.Stream
  *
  * @param Entity the entity type
  */
-interface PanacheMongoCompanion<Entity : PanacheMongoEntityBase>: PanacheMongoCompanionBase<Entity, ObjectId>
+interface PanacheMongoCompanion<Entity : PanacheMongoEntityBase>
+    : PanacheMongoCompanionBase<Entity, ObjectId>
 
 /**
  * Define persistence and query methods for an Entity with a type of Id
@@ -96,7 +97,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Find entities using a query, with named parameters.
      *
      * @param query a query string
-     * @param params Parameters of named parameters
+     * @param params [Parameters] of named parameters
      * @return a new [PanacheQuery] instance for the given query
      * @see [find]
      * @see [list]
@@ -111,7 +112,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      *
      * @param query a query string
      * @param sort the sort strategy to use
-     * @param params Parameters of indexed parameters
+     * @param params [Parameters] of indexed parameters
      * @return a new [PanacheQuery] instance for the given query
      * @see [find]
      * @see [list]
@@ -124,7 +125,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
     /**
      * Find entities using a BSON query.
      *
-     * @param query a query string
+     * @param query a [Document] query
      * @return a new [PanacheQuery] instance for the given query
      * @see [find]
      * @see [list]
@@ -136,8 +137,8 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
     /**
      * Find entities using a a BSON query and a BSON sort.
      *
-     * @param query a query string
-     * @param sort the sort strategy to use
+     * @param query a query [Document]
+     * @param sort the sort [Document]
      * @return a new [PanacheQuery] instance for the given query
      * @see [find]
      * @see [list]
@@ -234,7 +235,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * This method is a shortcut for `find(query, params).list()`.
      *
      * @param query a query string
-     * @param params Parameters of named parameters
+     * @param params [Parameters] of named parameters
      * @return a [List] containing all results, without paging
      * @see [list]
      * @see [find]
@@ -249,7 +250,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      *
      * @param query a query string
      * @param sort the sort strategy to use
-     * @param params Parameters of indexed parameters
+     * @param params [Parameters] of indexed parameters
      * @return a [List] containing all results, without paging
      * @see [list]
      * @see [find]
@@ -263,7 +264,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Find entities using a BSON query.
      * This method is a shortcut for `find(query).list()`.
      *
-     * @param query a query document
+     * @param query a query [Document]
      * @return a [List] containing all results, without paging
      * @see [list]
      * @see [find]
@@ -276,8 +277,8 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Find entities using a a BSON query and a BSON sort.
      * This method is a shortcut for `find(query, sort).list()`.
      *
-     * @param query a query document
-     * @param sort the sort document
+     * @param query a query [Document]
+     * @param sort the sort [Document]
      * @return a [List] containing all results, without paging
      * @see [list]
      * @see [find]
@@ -377,7 +378,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * This method is a shortcut for `find(query, params).stream()`.
      *
      * @param query a query string
-     * @param params Parameters of named parameters
+     * @param params [Parameters] of named parameters
      * @return a Stream containing all results, without paging
      * @see [stream]
      * @see [find]
@@ -392,7 +393,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      *
      * @param query a query string
      * @param sort the sort strategy to use
-     * @param params Parameters of indexed parameters
+     * @param params [Parameters] of indexed parameters
      * @return a Stream containing all results, without paging
      * @see [stream]
      * @see [find]
@@ -406,7 +407,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Find entities using a BSON query.
      * This method is a shortcut for `find(query).stream()`.
      *
-     * @param query a query Document
+     * @param query a query [Document]
      * @return a Stream containing all results, without paging
      * @see [stream]
      * @see [find]
@@ -419,8 +420,8 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Find entities using a a BSON query and a BSON sort.
      * This method is a shortcut for `find(query, sort).stream()`.
      *
-     * @param query a query Document
-     * @param sort the sort strategy to use
+     * @param query a query [Document]
+     * @param sort the sort [Document]
      * @return a Stream containing all results, without paging
      * @see [stream]
      * @see [find]
@@ -489,7 +490,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Counts the number of this type of entity matching the given query with named parameters.
      *
      * @param query a query string
-     * @param params Parameters of named parameters
+     * @param params [Parameters] of named parameters
      * @return the number of entities counted.
      * @see [count]
      */
@@ -499,7 +500,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
     /**
      * Counts the number of this type of entity matching the given query
      *
-     * @param query a query document
+     * @param query a query [Document]
      * @return the number of entities counted.
      * @see [count]
      */
@@ -543,7 +544,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * Delete all entities of this type matching the given query, with named parameters.
      *
      * @param query a query string
-     * @param params Parameters of named parameters
+     * @param params [Parameters] of named parameters
      * @return the number of entities deleted.
      * @see [deleteAll]
      * @see [delete]
@@ -554,7 +555,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
     /**
      * Delete all entities of this type matching the given query
      *
-     * @param query a query document
+     * @param query a query [Document]
      * @return the number of entities deleted.
      * @see [deleteAll]
      * @see [delete]
@@ -663,7 +664,7 @@ interface PanacheMongoCompanionBase<Entity : PanacheMongoEntityBase, Id: Any> {
      * @param update the update document, if it didn't contain any update operator, we add `$set`.
      * It can also be expressed as a query string.
      *
-     * @param params map of named parameters
+     * @param params [Map] of named parameters
      * @return a new [PanacheUpdate] instance for the given update document
      * @see [update]
      */
