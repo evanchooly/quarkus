@@ -1,5 +1,7 @@
 package io.quarkus.it.panache;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import java.util.Collections;
 import java.util.Optional;
 
@@ -29,10 +31,11 @@ public class PanacheMockingTest {
         Person.voidMethod();
 
         // make it throw our exception
-        Mockito.doThrow(new RuntimeException("Stef")).when(PanacheMock.getMock(Person.class)).voidMethod();
+        Mockito.doThrow(new RuntimeException("Stef"))
+               .when(PanacheMock.getMock(Person.class)).voidMethod();
         try {
             Person.voidMethod();
-            Assertions.fail();
+            fail();
         } catch (RuntimeException x) {
             Assertions.assertEquals("Stef", x.getMessage());
         }
@@ -41,7 +44,7 @@ public class PanacheMockingTest {
         PanacheMock.doThrow(new RuntimeException("Stef2")).when(Person.class).voidMethod();
         try {
             Person.voidMethod();
-            Assertions.fail();
+            fail();
         } catch (RuntimeException x) {
             Assertions.assertEquals("Stef2", x.getMessage());
         }
@@ -54,7 +57,7 @@ public class PanacheMockingTest {
         PanacheMock.doCallRealMethod().when(Person.class).voidMethod();
         try {
             Person.voidMethod();
-            Assertions.fail();
+            fail();
         } catch (RuntimeException x) {
             Assertions.assertEquals("void", x.getMessage());
         }
@@ -83,7 +86,7 @@ public class PanacheMockingTest {
         Mockito.when(Person.findById(12l)).thenThrow(new WebApplicationException());
         try {
             Person.findById(12l);
-            Assertions.fail();
+            fail();
         } catch (WebApplicationException x) {
         }
 
@@ -134,7 +137,7 @@ public class PanacheMockingTest {
         Mockito.when(mockablePersonRepository.findById(12l)).thenThrow(new WebApplicationException());
         try {
             mockablePersonRepository.findById(12l);
-            Assertions.fail();
+            fail();
         } catch (WebApplicationException x) {
         }
 

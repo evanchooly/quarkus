@@ -2,22 +2,22 @@ package io.quarkus.it.panache.kotlin
 
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheCompanion
 import io.quarkus.hibernate.orm.panache.kotlin.PanacheEntity
+import org.hibernate.annotations.Filter
+import org.hibernate.annotations.FilterDef
+import org.hibernate.annotations.FilterDefs
+import org.hibernate.annotations.Filters
+import org.hibernate.annotations.ParamDef
 import javax.persistence.CascadeType
 import javax.persistence.Column
 import javax.persistence.Entity
+import javax.persistence.EnumType
+import javax.persistence.Enumerated
 import javax.persistence.FetchType
 import javax.persistence.ManyToOne
 import javax.persistence.OneToMany
 import javax.persistence.Transient
 import javax.xml.bind.annotation.XmlRootElement
 import javax.xml.bind.annotation.XmlTransient
-import javax.persistence.Enumerated
-import org.hibernate.annotations.Filter
-import org.hibernate.annotations.FilterDef
-import org.hibernate.annotations.ParamDef
-import org.hibernate.annotations.FilterDefs
-import org.hibernate.annotations.Filters
-import javax.persistence.EnumType
 
 @XmlRootElement
 @Entity(name = "Person2")
@@ -32,6 +32,10 @@ import javax.persistence.EnumType
 open class Person : PanacheEntity() {
     companion object : PanacheCompanion<Person> {
         fun findOrdered(): List<Address>  = AddressDao.shouldBeOverridden()
+
+        fun voidMethod() {
+            throw RuntimeException("void")
+        }
     }
 
     var name: String? = null
