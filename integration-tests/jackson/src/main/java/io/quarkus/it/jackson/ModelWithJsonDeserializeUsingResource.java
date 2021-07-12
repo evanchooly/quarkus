@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.quarkus.it.jackson.model.ModelWithJsonDeserializeUsing;
+import io.quarkus.it.kotser.model.ModelWithJsonDeserializeUsing;
 
 @Path("/deserializerUsing")
 public class ModelWithJsonDeserializeUsingResource {

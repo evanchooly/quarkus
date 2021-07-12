@@ -2,6 +2,7 @@ package io.quarkus.it.jackson.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import io.quarkus.it.kotser.model.InheritedModelWithBuilder;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,10 +17,10 @@ public class InheritedModelWithBuilderTest {
     @Test
     public void testBuilderMinimal() {
         // prepare
-        InheritedModelWithBuilder.Builder builder = new InheritedModelWithBuilder.Builder("device1");
+        io.quarkus.it.kotser.model.InheritedModelWithBuilder.Builder builder = new io.quarkus.it.kotser.model.InheritedModelWithBuilder.Builder("device1");
 
         // execute
-        InheritedModelWithBuilder data = builder.build();
+        io.quarkus.it.kotser.model.InheritedModelWithBuilder data = builder.build();
 
         // verify
         assertThat(data.getVersion()).isEqualTo(1);
@@ -30,12 +31,12 @@ public class InheritedModelWithBuilderTest {
     @Test
     public void testBuilderUsingOptionals() {
         // prepare
-        InheritedModelWithBuilder.Builder builder = new InheritedModelWithBuilder.Builder("device1")
+        io.quarkus.it.kotser.model.InheritedModelWithBuilder.Builder builder = new io.quarkus.it.kotser.model.InheritedModelWithBuilder.Builder("device1")
                 .withVersion(2)
                 .withValue("value");
 
         // execute
-        InheritedModelWithBuilder data = builder.build();
+        io.quarkus.it.kotser.model.InheritedModelWithBuilder data = builder.build();
 
         // verify
         assertThat(data.getVersion()).isEqualTo(2);
@@ -46,12 +47,12 @@ public class InheritedModelWithBuilderTest {
     @Test
     public void testBuilderCloneConstructor() {
         // prepare
-        InheritedModelWithBuilder original = new InheritedModelWithBuilder.Builder("device1")
+        io.quarkus.it.kotser.model.InheritedModelWithBuilder original = new io.quarkus.it.kotser.model.InheritedModelWithBuilder.Builder("device1")
                 .withValue("value")
                 .build();
 
         // execute
-        InheritedModelWithBuilder clone = new InheritedModelWithBuilder.Builder(original).build();
+        io.quarkus.it.kotser.model.InheritedModelWithBuilder clone = new InheritedModelWithBuilder.Builder(original).build();
 
         // verify
         assertThat(clone.getVersion()).isEqualTo(1);

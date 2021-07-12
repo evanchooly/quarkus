@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import io.quarkus.it.jackson.model.ModelWithBuilder;
+import io.quarkus.it.kotser.model.ModelWithBuilder;
 
 @Path("/modelwithbuilder")
 public class ModelWithBuilderResource {

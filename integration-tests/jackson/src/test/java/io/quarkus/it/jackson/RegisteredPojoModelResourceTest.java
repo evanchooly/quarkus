@@ -1,6 +1,6 @@
 package io.quarkus.it.jackson;
 
-import static io.quarkus.it.jackson.TestUtil.getObjectMapperForTest;
+import static io.quarkus.it.kotser.TestUtil.getObjectMapperForTest;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
@@ -8,7 +8,7 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Test;
 
-import io.quarkus.it.jackson.model.RegisteredPojoModel;
+import io.quarkus.it.kotser.model.RegisteredPojoModel;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest

@@ -12,7 +12,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.quarkus.it.jackson.model.ModelWithSerializerAndDeserializerOnField;
+import io.quarkus.it.kotser.model.ModelWithSerializerAndDeserializerOnField;
 
 @Path("fieldserder")
 public class ModelWithSerializerDeserializerOnFieldResource {

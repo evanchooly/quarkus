@@ -14,7 +14,7 @@ import io.quarkus.arc.Arc;
  * Simple model class.
  */
 @JsonPropertyOrder({ "version", "id", "value" })
-@JsonDeserialize(builder = ModelWithBuilder.Builder.class)
+@JsonDeserialize(builder = io.quarkus.it.kotser.model.ModelWithBuilder.Builder.class)
 public class ModelWithBuilder {
 
     // -------------------------------------------------------------------------
@@ -47,8 +47,8 @@ public class ModelWithBuilder {
         return objectMapper.writeValueAsString(this);
     }
 
-    public static ModelWithBuilder fromJson(final String json) throws IOException {
-        return getObjectMapper().readerFor(ModelWithBuilder.class).readValue(json);
+    public static io.quarkus.it.kotser.model.ModelWithBuilder fromJson(final String json) throws IOException {
+        return getObjectMapper().readerFor(io.quarkus.it.kotser.model.ModelWithBuilder.class).readValue(json);
     }
 
     // -------------------------------------------------------------------------
@@ -93,7 +93,7 @@ public class ModelWithBuilder {
             this.id = id;
         }
 
-        public Builder(final ModelWithBuilder object) {
+        public Builder(final io.quarkus.it.kotser.model.ModelWithBuilder object) {
             this.version = object.version;
             this.id = object.id;
             this.value = object.value;
@@ -115,8 +115,8 @@ public class ModelWithBuilder {
             return this;
         }
 
-        public ModelWithBuilder build() {
-            return new ModelWithBuilder(this);
+        public io.quarkus.it.kotser.model.ModelWithBuilder build() {
+            return new io.quarkus.it.kotser.model.ModelWithBuilder(this);
         }
     }
 

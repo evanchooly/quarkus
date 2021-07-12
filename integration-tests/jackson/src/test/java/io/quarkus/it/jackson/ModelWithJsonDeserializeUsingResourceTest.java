@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.quarkus.it.jackson.model.ModelWithSerializerAndDeserializerOnField;
+import io.quarkus.it.kotser.model.ModelWithSerializerAndDeserializerOnField;
 import io.quarkus.test.junit.QuarkusTest;
 
 @QuarkusTest

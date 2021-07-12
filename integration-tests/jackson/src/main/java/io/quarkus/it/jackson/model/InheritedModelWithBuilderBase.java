@@ -44,7 +44,7 @@ abstract class InheritedModelWithBuilderBase {
     // Inner classes
     // -------------------------------------------------------------------------
 
-    abstract static class Builder<B extends Builder, T extends InheritedModelWithBuilderBase> {
+    abstract static class Builder<B extends Builder, T extends io.quarkus.it.kotser.model.InheritedModelWithBuilderBase> {
 
         // -------------------------------------------------------------------------
         // Object attributes

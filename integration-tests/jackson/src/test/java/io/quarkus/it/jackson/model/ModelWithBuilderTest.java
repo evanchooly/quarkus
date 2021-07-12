@@ -2,6 +2,7 @@ package io.quarkus.it.jackson.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import io.quarkus.it.kotser.model.ModelWithBuilder;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,10 +17,10 @@ public class ModelWithBuilderTest {
     @Test
     public void testBuilderMinimal() {
         // prepare
-        ModelWithBuilder.Builder builder = new ModelWithBuilder.Builder("id1");
+        io.quarkus.it.kotser.model.ModelWithBuilder.Builder builder = new io.quarkus.it.kotser.model.ModelWithBuilder.Builder("id1");
 
         // execute
-        ModelWithBuilder data = builder.build();
+        io.quarkus.it.kotser.model.ModelWithBuilder data = builder.build();
 
         // verify
         assertThat(data.getVersion()).isEqualTo(1);
@@ -30,12 +31,12 @@ public class ModelWithBuilderTest {
     @Test
     public void testBuilder() {
         // prepare
-        ModelWithBuilder.Builder builder = new ModelWithBuilder.Builder("id2")
+        io.quarkus.it.kotser.model.ModelWithBuilder.Builder builder = new io.quarkus.it.kotser.model.ModelWithBuilder.Builder("id2")
                 .withVersion(2)
                 .withValue("value");
 
         // execute
-        ModelWithBuilder data = builder.build();
+        io.quarkus.it.kotser.model.ModelWithBuilder data = builder.build();
 
         // verify
         assertThat(data.getVersion()).isEqualTo(2);
@@ -46,13 +47,13 @@ public class ModelWithBuilderTest {
     @Test
     public void testBuilderCloneConstructor() {
         // prepare
-        ModelWithBuilder original = new ModelWithBuilder.Builder("id1")
+        io.quarkus.it.kotser.model.ModelWithBuilder original = new io.quarkus.it.kotser.model.ModelWithBuilder.Builder("id1")
                 .withVersion(3)
                 .withValue("val")
                 .build();
 
         // execute
-        ModelWithBuilder clone = new ModelWithBuilder.Builder(original).build();
+        io.quarkus.it.kotser.model.ModelWithBuilder clone = new ModelWithBuilder.Builder(original).build();
 
         // verify
         assertThat(clone.getVersion()).isEqualTo(3);

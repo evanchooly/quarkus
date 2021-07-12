@@ -14,8 +14,8 @@ import io.quarkus.arc.Arc;
  * Simple model class.
  */
 @JsonPropertyOrder({ "version", "id", "value" })
-@JsonDeserialize(builder = InheritedModelWithBuilder.Builder.class)
-public class InheritedModelWithBuilder extends InheritedModelWithBuilderBase {
+@JsonDeserialize(builder = io.quarkus.it.kotser.model.InheritedModelWithBuilder.Builder.class)
+public class InheritedModelWithBuilder extends io.quarkus.it.kotser.model.InheritedModelWithBuilderBase {
 
     // -------------------------------------------------------------------------
     // Object attributes
@@ -44,8 +44,8 @@ public class InheritedModelWithBuilder extends InheritedModelWithBuilderBase {
         return objectMapper.writeValueAsString(this);
     }
 
-    public static InheritedModelWithBuilder fromJson(final String json) throws IOException {
-        return getObjectMapper().readerFor(InheritedModelWithBuilder.class).readValue(json);
+    public static io.quarkus.it.kotser.model.InheritedModelWithBuilder fromJson(final String json) throws IOException {
+        return getObjectMapper().readerFor(io.quarkus.it.kotser.model.InheritedModelWithBuilder.class).readValue(json);
     }
 
     // -------------------------------------------------------------------------
@@ -63,7 +63,7 @@ public class InheritedModelWithBuilder extends InheritedModelWithBuilderBase {
 
     @JsonPOJOBuilder(buildMethodName = "build", withPrefix = "with")
     public static final class Builder
-            extends InheritedModelWithBuilderBase.Builder<Builder, InheritedModelWithBuilder> {
+            extends io.quarkus.it.kotser.model.InheritedModelWithBuilderBase.Builder<Builder, io.quarkus.it.kotser.model.InheritedModelWithBuilder> {
 
         // -------------------------------------------------------------------------
         // Object attributes
@@ -79,7 +79,7 @@ public class InheritedModelWithBuilder extends InheritedModelWithBuilderBase {
             super(id);
         }
 
-        public Builder(final InheritedModelWithBuilder object) {
+        public Builder(final io.quarkus.it.kotser.model.InheritedModelWithBuilder object) {
             super(object);
             this.value = object.value;
         }
@@ -94,8 +94,8 @@ public class InheritedModelWithBuilder extends InheritedModelWithBuilderBase {
             return this;
         }
 
-        public InheritedModelWithBuilder build() {
-            return new InheritedModelWithBuilder(this);
+        public io.quarkus.it.kotser.model.InheritedModelWithBuilder build() {
+            return new io.quarkus.it.kotser.model.InheritedModelWithBuilder(this);
         }
     }
 

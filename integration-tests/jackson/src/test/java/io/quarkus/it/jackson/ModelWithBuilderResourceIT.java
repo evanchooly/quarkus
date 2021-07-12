@@ -1,5 +1,6 @@
 package io.quarkus.it.jackson;
 
+import io.quarkus.it.kotser.ModelWithBuilderResourceTest;
 import io.quarkus.test.junit.NativeImageTest;
 
 @NativeImageTest

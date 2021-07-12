@@ -24,8 +24,8 @@ public class RegisteredPojoModel {
     private String id = null;
     private String value = null;
 
-    private RegisteredPojoModel parent;
-    private RegisteredPojoModel child;
+    private io.quarkus.it.kotser.model.RegisteredPojoModel parent;
+    private io.quarkus.it.kotser.model.RegisteredPojoModel child;
 
     // -------------------------------------------------------------------------
     // Constructors
@@ -46,8 +46,8 @@ public class RegisteredPojoModel {
         return objectMapper.writeValueAsString(this);
     }
 
-    public static RegisteredPojoModel fromJson(final String json) throws IOException {
-        return getObjectMapper().readerFor(RegisteredPojoModel.class).readValue(json);
+    public static io.quarkus.it.kotser.model.RegisteredPojoModel fromJson(final String json) throws IOException {
+        return getObjectMapper().readerFor(io.quarkus.it.kotser.model.RegisteredPojoModel.class).readValue(json);
     }
 
     // -------------------------------------------------------------------------
@@ -78,19 +78,19 @@ public class RegisteredPojoModel {
         this.value = value;
     }
 
-    public RegisteredPojoModel getParent() {
+    public io.quarkus.it.kotser.model.RegisteredPojoModel getParent() {
         return parent;
     }
 
-    public void setParent(RegisteredPojoModel parent) {
+    public void setParent(io.quarkus.it.kotser.model.RegisteredPojoModel parent) {
         this.parent = parent;
     }
 
-    public RegisteredPojoModel getChild() {
+    public io.quarkus.it.kotser.model.RegisteredPojoModel getChild() {
         return child;
     }
 
-    public void setChild(RegisteredPojoModel child) {
+    public void setChild(io.quarkus.it.kotser.model.RegisteredPojoModel child) {
         this.child = child;
     }
 

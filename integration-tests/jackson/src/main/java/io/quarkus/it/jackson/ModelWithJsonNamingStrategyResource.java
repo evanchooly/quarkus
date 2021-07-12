@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.quarkus.it.jackson.model.SampleResponse;
+import io.quarkus.it.kotser.model.SampleResponse;
 
 @Path("/json-naming/")
 public class ModelWithJsonNamingStrategyResource {

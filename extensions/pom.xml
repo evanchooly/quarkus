@@ -28,6 +28,7 @@
         <module>jaxb</module>
         <module>jsonp</module>
         <module>jsonb</module>
+        <module>kotlin-serialization</module>
 
         <!-- HTTP -->
         <module>vertx-core</module>

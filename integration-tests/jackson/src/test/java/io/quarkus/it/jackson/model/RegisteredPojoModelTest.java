@@ -2,6 +2,7 @@ package io.quarkus.it.jackson.model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import io.quarkus.it.kotser.model.RegisteredPojoModel;
 import org.junit.jupiter.api.Test;
 
 /**
@@ -18,7 +19,7 @@ public class RegisteredPojoModelTest {
         // prepare
 
         // execute
-        RegisteredPojoModel data = new RegisteredPojoModel();
+        io.quarkus.it.kotser.model.RegisteredPojoModel data = new io.quarkus.it.kotser.model.RegisteredPojoModel();
 
         // verify
         assertThat(data.getVersion()).isEqualTo(1);
@@ -31,7 +32,7 @@ public class RegisteredPojoModelTest {
         // prepare
 
         // execute
-        RegisteredPojoModel data = new RegisteredPojoModel();
+        io.quarkus.it.kotser.model.RegisteredPojoModel data = new RegisteredPojoModel();
         data.setVersion(2);
         data.setId("id1");
         data.setValue("value");

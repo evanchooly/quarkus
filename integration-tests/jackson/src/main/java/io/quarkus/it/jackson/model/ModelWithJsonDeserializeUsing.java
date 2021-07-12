@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-@JsonDeserialize(using = ModelWithJsonDeserializeUsing.CustomDeserializer.class)
+@JsonDeserialize(using = io.quarkus.it.kotser.model.ModelWithJsonDeserializeUsing.CustomDeserializer.class)
 public class ModelWithJsonDeserializeUsing {
 
     private String someValue;
@@ -21,11 +21,11 @@ public class ModelWithJsonDeserializeUsing {
         return someValue;
     }
 
-    public static class CustomDeserializer extends JsonDeserializer<ModelWithJsonDeserializeUsing> {
+    public static class CustomDeserializer extends JsonDeserializer<io.quarkus.it.kotser.model.ModelWithJsonDeserializeUsing> {
 
         @Override
-        public ModelWithJsonDeserializeUsing deserialize(JsonParser p, DeserializationContext ctxt) {
-            return new ModelWithJsonDeserializeUsing("constant");
+        public io.quarkus.it.kotser.model.ModelWithJsonDeserializeUsing deserialize(JsonParser p, DeserializationContext ctxt) {
+            return new io.quarkus.it.kotser.model.ModelWithJsonDeserializeUsing("constant");
         }
     }
 }
